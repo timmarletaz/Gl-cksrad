@@ -18,6 +18,8 @@ var num5;
 var rgtAns;
 var ansIns;
 
+//import { questions } from './data.js';
+
 var hplayer = document.getElementById("hplayer");
 var player = document.getElementById("player");
 
@@ -237,38 +239,9 @@ function showQuestion(sector){
   entrSpin = false;
 
    
-   var questions = ["Welches dieser Passwörter ist am sichersten?", 
-   "Wie viele Hackingangriffe auf Schweizer Unternehmen finden pro Woche statt?", 
-   "Wofür steht das «s» in https://?", "Welche dieser Aspekte kommen oft bei Phishing-Mails vor?", 
-   "Wann wurde die erste E-Mail versendet?", "Was bedeutet der Begriff Encryption?",
-    "Welche Beschreibung trifft auf Deepfakes zu?", 
-    "Wie viele Angriffe auf Passwörter finden weltweit pro Minute statt?", 
-    "Was ist typisch für Spear-Phishing-Angriffe?", "Wie viel Prozent der über 40-jährigen<br>haben Geld an Cyberkriminelle bezahlt?", 
-    "Wann wurde der erste Computervirus programmiert?", 
-    "Was stellt für Unternehmen das grösste Sicherheitsrisiko dar?",
-    "Welche Aussage trifft am meisten zu?", "Welches WLAN ist am sichersten, um sich zu verbinden?", 
-    "Welche Technologie für die Erstellung von Deepfakes verwendet?", "Was bedeutet «Clean Desk Policy»?", "Für was steht IP?", "Was versteht man unter Zero-Day?"];
+   var questions = JSON.parse(localStorage.getItem("arr"));
 
-   const options = [
-    {A: "Passwort1234!", B:"59drachen24", C: "Ighgs%u5UnH!"},
-    {A: "825", B: "412", C: "1203"},
-    {A: "Keine Bedeutung", B: "static/stable", C: "safe/secure"},
-    {A: "Lange Texte, englische Sprache", B: "Drängende Formulierung", C: "Fehlende Signatur"},
-    {A: "1971", B: "1965", C: "1998"},
-    {A: "Schadsoftware", B: "Die Verschlüsselung von Klartext in kryptographische Zeichenfolgen", C: "Schreiben eines Datensatzes"},
-    {A: "Fälschung von Gesicht und Stimme", B: "Fake News", C: "Form der Satire"},
-    {A: "14.256", B: "34.740", C: "42.117"},
-    {A: "Opfer wird gezielt festgelegt", B: "Angriff auf grosse Gruppe von Menschen", C: "Erpressung"},
-    {A: "3%", B: "12%", C: "8%"},
-    {A: "1989", B: "2001", C: "1982"},
-    {A: "Mitarbeitende", B: "Software & Firewall", C: "Ehemalige Mitarbeitende"},
-    {A: "Alle Mitarbeitenden sollten Anzeichen eines Cyberangriffs erkennen können", B: "Bestimmmte Mitarbeitende (z.B. IT-Spezialisten) sollten Anzeichen eines Cyberangriffes erkennen können", C: "Niemand der Mitarbeitenden muss die Anzeichen eines Cyberangriffs erkennen können"},
-    {A: "Kostenpflichtiges WLAN", B: "Öffentliches WLAN", C: "WLAN bei einem Freund"},
-    {A: "Blockchain", B: "Quantencomputer", C: "Künstliche neuronale Netze"},
-    {A: "Keine Flecken zu hinterlassen", B: "Keine Dokumente und entsperrte Geräte zu hinterlassen", C: "Sitzen zu können, wo man will"},
-    {A: "Internal Pointer", B: "Internet Protocol", C: "Intranet Pattern"},
-    {A: "Nicht erkennbare Schadsoftware", B: "Nicht behobene Sicherheitslücke", C: "Netzwerkschwachstelle"}
-];
+   const options = JSON.parse(localStorage.getItem("options"));
 
 
 var frage = questions[sector-1];
@@ -294,11 +267,7 @@ function checkAnswer(sector, options, optionen){
 
     var guess = false;
 
-    let answers = ["Ighgs%u5UnH!", "825", "safe/secure", "Drängende Formulierung", "1971", 
-    "Die Verschlüsselung von Klartext in kryptographische Zeichenfolgen", "Fälschung von Gesicht und Stimme", 
-    "34.740", "Opfer wird gezielt festgelegt", "8%", "1982", "Mitarbeitende", 
-    "Alle Mitarbeitenden sollten Anzeichen eines Cyberangriffs erkennen können", "WLAN bei einem Freund", "Künstliche neuronale Netze", 
-    "Keine Dokumente und entsperrte Geräte zu hinterlassen", "Internet Protocol", "Nicht behobene Sicherheitslücke"];
+    let answers = JSON.parse(localStorage.getItem("answers"));
 
     
     document.addEventListener("keydown", function(event){
